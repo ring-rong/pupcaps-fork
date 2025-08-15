@@ -51,6 +51,6 @@ This fork specifically addresses Windows compatibility issues that were present 
 If you're migrating from the original PupCaps:
 
 1. Uninstall the original: `npm uninstall -g pupcaps`
-2. Clone this fork: `git clone https://github.com/your-username/PupCaps.git`
-3. Install: `cd PupCaps && npm install && npm run build && npm i -g .`
+2. Clone this fork: `git clone https://github.com/ring-rong/pupcaps-fork.git`
+3. Install: `cd pupcaps-fork && npm install && npm run build && npm i -g .`
 4. Use built-in styles: `pupcaps video.srt --style tiktok-modern`

@@ -21,8 +21,8 @@ This fork resolves **ALL** critical Windows compatibility issues found in the or
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/PupCaps.git
-cd PupCaps
+git clone https://github.com/ring-rong/pupcaps-fork.git
+cd pupcaps-fork
 npm install
 npm run build
 npm i -g .
@@ -59,8 +59,8 @@ pupcaps video.srt --style tiktok-modern --preview
 npm uninstall -g pupcaps
 
 # Install this fork
-git clone https://github.com/your-username/PupCaps.git
-cd PupCaps
+git clone https://github.com/ring-rong/pupcaps-fork.git
+cd pupcaps-fork
 npm install && npm run build && npm i -g .
 ```
 

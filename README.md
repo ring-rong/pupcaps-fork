@@ -36,8 +36,8 @@ This fork fixes critical Windows compatibility issues:
 **Install this fork:**
 
 ```shell
-git clone https://github.com/your-username/PupCaps.git
-cd PupCaps
+git clone https://github.com/ring-rong/pupcaps-fork.git
+cd pupcaps-fork
 npm install
 npm run build
 npm i -g .
@@ -47,14 +47,14 @@ npm i -g .
 
 **Option 1: Install directly from GitHub:**
 ```shell
-npm install git+https://github.com/your-username/PupCaps.git
+npm install git+https://github.com/ring-rong/pupcaps-fork.git
 ```
 
 **Option 2: Add to package.json:**
 ```json
 {
   "dependencies": {
-    "pupcaps": "git+https://github.com/your-username/PupCaps.git"
+    "pupcaps": "git+https://github.com/ring-rong/pupcaps-fork.git"
   }
 }
 ```
@@ -62,12 +62,12 @@ npm install git+https://github.com/your-username/PupCaps.git
 **Option 3: Use as local dependency:**
 ```shell
 # Clone and build the fork
-git clone https://github.com/your-username/PupCaps.git
-cd PupCaps
+git clone https://github.com/ring-rong/pupcaps-fork.git
+cd pupcaps-fork
 npm install && npm run build
 
 # In your project directory
-npm install file:../path/to/PupCaps
+npm install file:../path/to/pupcaps-fork
 ```
 ## Usage
 
