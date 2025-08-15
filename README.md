@@ -43,32 +43,6 @@ npm run build
 npm i -g .
 ```
 
-### 📦 Use This Fork in Other Projects:
-
-**Option 1: Install directly from GitHub:**
-```shell
-npm install git+https://github.com/ring-rong/pupcaps-fork.git
-```
-
-**Option 2: Add to package.json:**
-```json
-{
-  "dependencies": {
-    "pupcaps": "git+https://github.com/ring-rong/pupcaps-fork.git"
-  }
-}
-```
-
-**Option 3: Use as local dependency:**
-```shell
-# Clone and build the fork
-git clone https://github.com/ring-rong/pupcaps-fork.git
-cd pupcaps-fork
-npm install && npm run build
-
-# In your project directory
-npm install file:../path/to/pupcaps-fork
-```
 ## Usage
 
 To use the script, you need a **SubRip Subtitle (.srt)** file. PupCaps enables you to create **Karaoke-style captioning** 
