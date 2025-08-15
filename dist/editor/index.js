@@ -141,40 +141,77 @@
 	    return true;
 	}
 	function readCaptions(srtContent) {
-	    const lines = srtContent.split('\n');
+	    const lines = srtContent.split('\n').map(line => line.trim());
 	    const captions = [];
 	    let index = 0;
 	    let timecodesStart = null;
 	    let timecodesEnd = null;
-	    for (const line of lines) {
+	    let captionText = [];
+	    for (let i = 0; i < lines.length; i++) {
+	        const line = lines[i];
 	        let match;
+	        // Skip empty lines
+	        if (line.length === 0) {
+	            // If we have accumulated caption text, process it
+	            if (captionText.length > 0 && timecodesStart && timecodesEnd) {
+	                try {
+	                    const start = toMillis(timecodesStart);
+	                    const end = toMillis(timecodesEnd);
+	                    const fullText = captionText.join(' ');
+	                    const words = readWords(fullText);
+	                    captions.push({
+	                        index,
+	                        words,
+	                        startTimeMs: start,
+	                        endTimeMs: end,
+	                    });
+	                }
+	                catch (error) {
+	                    console.error(`Error parsing timecodes for caption ${index}: ${error instanceof Error ? error.message : String(error)}`);
+	                    console.warn(`Skipping caption. Start: "${timecodesStart}", End: "${timecodesEnd}", Text: "${captionText.join(' ')}"`);
+	                }
+	                // Reset for next caption
+	                captionText = [];
+	                timecodesStart = null;
+	                timecodesEnd = null;
+	            }
+	            continue;
+	        }
 	        if ((match = line.match(indexLinePattern))) {
+	            // New caption index
 	            index = Number(line);
 	        }
 	        else if ((match = line.match(timecodesLinePattern))) {
+	            // Timecodes line
 	            timecodesStart = match[1];
 	            timecodesEnd = match[2];
 	        }
-	        else if (line.length) {
+	        else {
+	            // This should be caption text
 	            if (!timecodesStart || !timecodesEnd) {
 	                console.warn(`Skipping caption at index ${index}: Missing timecodes. Line: "${line}"`);
 	                continue;
 	            }
-	            try {
-	                const start = toMillis(timecodesStart);
-	                const end = toMillis(timecodesEnd);
-	                const words = readWords(line);
-	                captions.push({
-	                    index,
-	                    words,
-	                    startTimeMs: start,
-	                    endTimeMs: end,
-	                });
-	            }
-	            catch (error) {
-	                console.error(`Error parsing timecodes for caption ${index}: ${error instanceof Error ? error.message : String(error)}`);
-	                console.warn(`Skipping caption. Start: "${timecodesStart}", End: "${timecodesEnd}", Line: "${line}"`);
-	            }
+	            captionText.push(line);
+	        }
+	    }
+	    // Handle last caption if file doesn't end with empty line
+	    if (captionText.length > 0 && timecodesStart && timecodesEnd) {
+	        try {
+	            const start = toMillis(timecodesStart);
+	            const end = toMillis(timecodesEnd);
+	            const fullText = captionText.join(' ');
+	            const words = readWords(fullText);
+	            captions.push({
+	                index,
+	                words,
+	                startTimeMs: start,
+	                endTimeMs: end,
+	            });
+	        }
+	        catch (error) {
+	            console.error(`Error parsing timecodes for caption ${index}: ${error instanceof Error ? error.message : String(error)}`);
+	            console.warn(`Skipping caption. Start: "${timecodesStart}", End: "${timecodesEnd}", Text: "${captionText.join(' ')}"`);
 	        }
 	    }
 	    return captions;

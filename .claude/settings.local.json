@@ -1,5 +1,12 @@
 {
   "permissions": {
-    "defaultMode": "acceptEdits"
+    "allow": [
+      "Bash(node:*)",
+      "Bash(pwsh:*)"
+    ],
+    "defaultMode": "acceptEdits",
+    "additionalDirectories": [
+      "L:\\projecrs\\Shortmaker\\media"
+    ]
   }
 }
