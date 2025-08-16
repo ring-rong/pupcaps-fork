@@ -2,7 +2,7 @@
   "name": "pupcaps",
   "version": "1.0.0-alpha4-windows-fork",
   "description": "PupCaps! : A script to add stylish captions to your videos. Windows-compatible fork (no admin rights required).",
-  "author": "Alexei KLENIN <alexei.klenin@gmail.com> (https://github.com/hosuaby)",
+  "author": "Alexei KLENIN <alexei.klenin@gmail.com> (https://github.com/ring-rong/pupcaps-fork)",
   "license": "Apache-2.0",
   "main": "dist/script/index.js",
   "bin": {
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hosuaby/PupCaps.git"
+    "url": "git+https://github.com/ring-rong/pupcaps-fork.git"
   },
   "bugs": {
-    "url": "https://github.com/hosuaby/PupCaps/issues"
+    "url": "https://github.com/ring-rong/pupcaps-fork/issues"
   },
-  "homepage": "https://github.com/hosuaby/PupCaps#readme",
+  "homepage": "https://github.com/ring-rong/pupcaps-fork#readme",
   "keywords": [
     "subtitles",
     "captions",
