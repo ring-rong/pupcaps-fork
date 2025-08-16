@@ -39,7 +39,6 @@ This fork fixes critical Windows compatibility issues:
 git clone https://github.com/ring-rong/pupcaps-fork.git
 cd pupcaps-fork
 npm install
-npm run build
 npm i -g .
 ```
 
